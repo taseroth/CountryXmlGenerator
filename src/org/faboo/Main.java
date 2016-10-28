@@ -32,28 +32,17 @@ public class Main {
 
         System.out.println(m);
         m.keySet().forEach(letter -> {
-            xml.append("<" + letter.toUpperCase() + ">\n");
+            xml.append("<").append(letter.toUpperCase()).append(">\n");
             xml.append(m.get(letter).stream().map(flag -> String.format("<entry>\n" +
                     "                <id>%1$S</id>\n" +
                     "                <title>COUNTRY.%1$S</title>\n" +
                     "                <img>assets/images/flags/flag-%1$s.svg</img>\n" +
                     "            </entry>\n", flag))
                     .collect(Collectors.joining()));
-            xml.append("</" + letter.toUpperCase() + ">\n");
+            xml.append("</").append(letter.toUpperCase()).append(">\n");
         });
         xml.append("</list>");
         System.out.println(xml);
-
-        /*        .map(flag -> String.format("<entry>\n" +
-                        "                <id>%1$S</id>\n" +
-                        "                <title>COUNTRY.%1$S</title>\n" +
-                        "                <img>assets/images/flags/flag-%1$s.svg</img>\n" +
-                        "            </entry>", flag))
-                .collect(Collectors.joining())
-        */
-        ;
-
-
     }
 
 }
